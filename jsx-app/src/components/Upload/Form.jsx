@@ -5,6 +5,7 @@ export const UploadForm = () => {
 
     const [username, setUsername] = useState('')
     const [key, setKey] = useState('')
+    const [file, setFile] = useState()
 
 
     const handleSubmit = (e) => {
@@ -16,7 +17,9 @@ export const UploadForm = () => {
             alert('the key must be at least 12 characters')
             return
         }
-        alert("Envoyer au backend pour le user " + username + " with the key " + key)
+        console.log("username : " + username)
+        console.log("key : " + key)
+        console.log("file : " + file.name)
     }
 
     const handleUsernameChange = (e) => {
@@ -25,6 +28,10 @@ export const UploadForm = () => {
 
     const handleKeyChange = (e) => {
         setKey(e.target.value)
+    }
+
+    const handleFileChange = (e) => {
+        setFile(e.target.files[0])
     }
 
 
@@ -36,9 +43,9 @@ export const UploadForm = () => {
                 <input type='text' placeholder="username" onChange={handleUsernameChange}/>
                 <h4>File</h4>
                 {/*
-                    TODO -- handle the file of the form
+                    TODO -- encrypt the file
                 */}
-                <input type='file'/> 
+                <input type='file' onChange={handleFileChange}/> 
                 <h4>Secret Key</h4>
                 <input type='text' placeholder="Secret Key" onChange={handleKeyChange}/>
                 <button>Send</button>

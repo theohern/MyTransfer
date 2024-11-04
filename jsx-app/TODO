@@ -1,0 +1,26 @@
+- Frontend
+    - Home
+        - [ ] Make it clean
+        - [ ] Divide into components
+        - [ ] Write explanations
+
+    - Upload
+        - [ ] Encrypt the file
+        - [ ] Make request to the backend
+    
+    - Download
+        - [ ] Create a Form
+        - [ ] Make request to the backend
+        - [ ] Decrypt the file
+- Backend
+    - Database
+        - [ ] create one
+    - API
+        - [ ] create one
+
+- Security
+    - [ ] Proxy
+    - [ ] HTTPS
+    - [ ] cookies & middlewares
+    - [ ] CORS policy
+    - [ ] hash & cryptography

@@ -1,4 +1,5 @@
 using backend.Records;
+using backend.Extensions;
 using Npgsql;
 using System.Diagnostics;
 
@@ -25,22 +26,6 @@ app.MapPost("/upload", (UploadRecord newUpload)=>{
     return Results.Ok();
 });
 
-app.MapPost("/secret", async (Secret newSecret, NpgsqlConnection connection)=>{
-    Console.WriteLine($"get a new secret {newSecret.secret} with Maxsize {newSecret.maxSize} and MaxUpload {newSecret.maxUpload}");
-
-    await connection.OpenAsync();
-
-    var query = $"INSERT INTO secret (secret, MaxSize, MaxUpload) VALUES (@secret, @MaxSize, @MaxUpload)";
-
-    using (var cmd = new NpgsqlCommand(query, connection)){
-        cmd.Parameters.AddWithValue("secret", newSecret.secret);
-        cmd.Parameters.AddWithValue("MaxSize", newSecret.maxSize);
-        cmd.Parameters.AddWithValue("MaxUpload", newSecret.maxUpload);
-
-        await cmd.ExecuteNonQueryAsync();
-    }
-
-    return Results.Ok();
-});
+app.SecretRestApi();
 
 app.Run();

@@ -26,5 +26,6 @@ dist-ssr
 backend/*
 !backend/Program.cs
 !backend/Records
+!backend/Extensions
 
 SimpleBackend

@@ -4,6 +4,7 @@ import { Home } from './pages/Home'
 import { Upload } from './pages/Upload'
 import { Download } from './pages/Download'
 import { Formulaire } from './pages/Form'
+import { Secret } from './pages/Secret'
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
   {
     path : '/learning/form',
     element : <Formulaire/>
+  },
+  {
+    path : "/secret",
+    element : <Secret/>
   }
 ])
 

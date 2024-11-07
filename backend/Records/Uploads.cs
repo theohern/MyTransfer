@@ -1,6 +1,6 @@
 namespace backend.Records;
 
-public record class UploadRecord(
+public record class Upload(
     string username, 
     int size, 
     int date,
@@ -8,5 +8,6 @@ public record class UploadRecord(
     string fileName, 
     string secret,
     int file, 
-    int publickey
+    int publickey,
+    int maxDownload
 );

@@ -14,18 +14,20 @@ builder.Services.AddScoped<NpgsqlConnection>(provider =>
     return new NpgsqlConnection(connectionString);
 });
 
-
-// Afficher la chaîne de connexion dans la console
-Console.WriteLine($"Connection String: {connectionString}");
+builder.Services.AddCors(options =>{
+    options.AddPolicy("AllowSpecificOrigins",
+    policy =>{
+        policy.WithOrigins("http://localhost:5173")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
 
 var app = builder.Build();
 
+app.UseCors("AllowSpecificOrigins");
 
-app.MapPost("/upload", (UploadRecord newUpload)=>{
-    Console.WriteLine($"get a new upload with username {newUpload.username} avec la size {newUpload.size}");
-    return Results.Ok();
-});
-
+app.UploadRestApi();
 app.SecretRestApi();
 
 app.Run();

@@ -1,5 +1,5 @@
 # MyTransfer
 
-This app is made for purpose learning
+This application is designed for learning
 
-MyTransfer is an web application in order to transfer and store files in the most secure way
+MyTransfer is a web application that lets you transfer and store files in a secured way
